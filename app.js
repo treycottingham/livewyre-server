@@ -19,13 +19,10 @@ app.use(cors({
   credentials: true
 }))
 
-// app.use('/concerts', concerts)
-
 app.get('/:id', (req, res) => {
   queries.read(req.params.id)
     .then(concert => res.json(concert))
-  // knex.from('concert').where('id', req.params.id)
-  //   .then(concert => res.json(concert))
+    .then(concert => res.json(concert))
 })
 
 app.post('/', (req, res, next) => {
